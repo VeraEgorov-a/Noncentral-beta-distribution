@@ -56,31 +56,24 @@ else
         if s>0.01 && p>50 && q>50
             if y<1.1*y0
                 Bpq=BpqxyErFun(x,y,p,q);
-
             else
                 Bpq=1-BpqxyErFunC(x,y,p,q);
-
             end
         elseif s<0.01 && z<15 && p>100
             if y<0.95
                 Bpq=BpqxyLargep(x,y,p,q);
-
             else
                 Bpq=Bpqxyyclose1(x,y,p,q);
-
             end
         elseif s<0.2 && x>100 && y>0.8
             if y<1.1*y0
                 Bpq=BpqxyKummer(x,y,p,q);
-
             else
                 Bpq=1-BpqxyKummerC(x,y,p,q);
-
             end
         else
             if y<1.1*y0
                 [Bpq,ierro]=BpqxySeries2(x,y,p,q);
-
                 if ierro==1
                     ierr=1;
                 end
@@ -91,7 +84,6 @@ else
                     ierr=1;
                 end
                 Bpq=1-betanc;
-
             end
         end
     else
@@ -99,16 +91,13 @@ else
             %Expansion for z large
             if y<0.95
                 Bpq=BpqxyExpz(x,y,p,q);
-
             else
                 Bpq=Bpqxyzlargeyclose1(x,y,p,q);
-
             end
         else
             if x<200 || Ff>log(1e+240)
                 if y<1.1*y0
                     [Bpq,ierro]=BpqxySeries2(x,y,p,q);
-
                     if ierro==1
                         ierr=1;
                     end
@@ -119,7 +108,6 @@ else
                         ierr=1;
                     end
                     Bpq=1-betanc;
-
                 end
             else
                 if y<1.1*y0
@@ -128,7 +116,6 @@ else
                         Bpq=0;
                         ierr=1;
                     end
-
                 else
                     [BpqC,ier]=BpqxyKummerC(x,y,p,q);
                     if ier==1
@@ -136,7 +123,6 @@ else
                         ierr=1;
                     end
                     Bpq=1-BpqC;
-
                 end
             end
         end
