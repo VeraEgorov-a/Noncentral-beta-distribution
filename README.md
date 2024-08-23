@@ -20,7 +20,7 @@
 - **`Bpq`**: Computed value of the noncentral beta distribution
 - **`ierr`**: Error flag indicating the success or issues in computation:
   - `0`: Computation successful
-  - `1`: Computation successful, but some loss of accuracy is expected
+  - `1`: Some loss of accuracy is expected in the computed function value
   - `2`: Computation failed due to one or more input values being out of bounds
 
 ## Description
