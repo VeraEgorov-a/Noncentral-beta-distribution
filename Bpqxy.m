@@ -73,7 +73,7 @@ else
             end
         else
             if y<1.1*y0
-                [Bpq,ierro]=BpqxySeries2(x,y,p,q);
+                [Bpq,ierro]=BpqxySeries(x,y,p,q);
                 if ierro==1
                     ierr=1;
                 end
@@ -97,7 +97,7 @@ else
         else
             if x<200 || Ff>log(1e+240)
                 if y<1.1*y0
-                    [Bpq,ierro]=BpqxySeries2(x,y,p,q);
+                    [Bpq,ierro]=BpqxySeries(x,y,p,q);
                     if ierro==1
                         ierr=1;
                     end
