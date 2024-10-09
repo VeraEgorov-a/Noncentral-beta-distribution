@@ -67,6 +67,7 @@ fprintf('Computed noncentral beta distribution value (MATLAB): I = %.8e\n', Im);
 
 V. Egorova, A. Gil, J. Segura and N. M. Temme
 
+For further details, you can refer to the paper: https://doi.org/10.1007/s11075-024-01931-8.
 
 ## Contact
 
