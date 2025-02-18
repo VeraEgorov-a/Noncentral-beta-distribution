@@ -5,6 +5,7 @@ function [Bpq,ierr]=BpqxyKummerC(x,y,p,q)
 %To be used for y>y0
 %---------------------------------------------
 ierr=0;
+rmax=10000;
 huge=realmax/100;
 argu=0.5*x*y;
 a=p+q;
@@ -26,7 +27,7 @@ else
   v2=1;
   lj=0;
   mm1=m1;
-  while abs(vt/m1)>=eps && mm1<huge
+  while abs(vt/m1)>=eps && mm1<huge && r<rmax
     v=v*eta;
     v2=v2*(a+r-1)/(q+r);
     mm1=Mabx(a+r,b,argu,ich);
@@ -38,6 +39,9 @@ else
   factor=exp(-0.5*x)*D/q;
   Bpq=factor*m1;
 end   
+if r==rmax
+  ierr=1;
+end  
 end
 
 %% Factor x^p*(1-x)^q/Beta(p,q)

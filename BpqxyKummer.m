@@ -1,6 +1,7 @@
 function [Bpq,ierr]=BpqxyKummer(x,y,p,q)
 %Expansion in terms of the Kummer-M function
 ierr=0;
+rmax=10000;
 huge=realmax/100;
 argu=0.5*x*y;
 a=p+q;
@@ -19,7 +20,7 @@ else
   r=1;
   v=1;
   mm1=m1;
-  while abs(vt/m1)>=eps && mm1<huge
+  while abs(vt/m1)>=eps && mm1<huge && r<rmax
     v=v*y;
     v=v*(a+r-1)/(b+r-1);
     mm1=Mabx(a+r,b+r,argu,ich);
@@ -30,6 +31,9 @@ else
   D=Ffactor(y,p,q);
   factor=exp(-0.5*x)*D/p;
   Bpq=factor*m1;
+  if r==rmax
+    ierr=1;
+  end  
 end 
 end
 

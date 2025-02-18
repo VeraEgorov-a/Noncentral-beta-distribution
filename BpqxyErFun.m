@@ -4,7 +4,7 @@ global r s2 c2 xi tp t0 zeta zeta2
 r= p+q; s2= q/r; c2= p/r; xi= x*y/2/r; tp= 1/y;
 t0= t0proc(xi,c2);
 zeta2= 2*(phit(s2,xi,tp)-phit(s2,xi,t0));
-zeta= sqrt(zeta2);
+zeta= real(sqrt(zeta2));
 if tp < t0
   zeta= -zeta;
 end
